@@ -26,12 +26,14 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\event\event.component.ts" />
     <None Remove="ClientApp\src\app\food\food.component.ts" />
+    <None Remove="ClientApp\src\app\footer\footer.component.ts" />
     <None Remove="ClientApp\src\app\music\music.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\event\event.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\food\food.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\footer\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\music\music.component.ts" />
   </ItemGroup>
 
