@@ -25,8 +25,8 @@ namespace CaucaRegion
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
 
-            var connection = Configuration.GetConnectionString("connectionBD");
-            services.AddDbContext<CaucaRegionBDContext>(option => option.UseSqlServer(connection));
+            var connection = Configuration.GetConnectionString("connectionDB");
+           services.AddDbContext<CaucaRegionBDContext>(options => options.UseSqlServer(connection));
 
             services.AddSpaStaticFiles(configuration =>
             {

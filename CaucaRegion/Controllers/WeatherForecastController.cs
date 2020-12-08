@@ -23,7 +23,7 @@ namespace CaucaRegion.Controllers
             _logger = logger;
         }
 
-        [HttpGet("[action]")]
+        [HttpGet]
         public List<string> Get()
         {
             var rng = new Random();

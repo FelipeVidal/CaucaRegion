@@ -5,6 +5,24 @@
     <title></title>
 </head>
 <body>
-  Hello, i'm the page of event's
+  <div class="grid">
+    <div class="card" style="width: 18rem;" *ngFor="let elemento of lstMessages">
+      <img class="card-img-top" src="assets/img/statistics.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{elemento.nombre}}
+        </h5>
+        <p class="card-texr">
+          
+          Lugar: {{elemento.lugar}}
+        </p>
+        <p class="card-text">
+        
+          Entrada: {{elemento.entrada}}
+        </p>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -11,6 +11,8 @@ import { HttpClient } from "@angular/common/http"
 export class MusicComponent{
   public lstMessages: string[];
   constructor(http: HttpClient, @Inject("BASE_URL") baseUrl: string) {
-    http.get<string[]>(baseUrl + "api/WeatherForecast/Get").subscribe(result => { this.lstMessages = result }, error => console.error(error));
+    http.get<string[]>(baseUrl + "api/WeatherForecast").subscribe(result => { this.lstMessages = result }, error => console.error(error));
   }
+
+
 }
