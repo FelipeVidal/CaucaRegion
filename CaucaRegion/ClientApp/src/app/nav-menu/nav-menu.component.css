@@ -16,3 +16,15 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+.alingtext {
+  color: white;
+  padding-left: 0rem;
+  font-family: cursive;
+  font-size: xx-large;
+}
+
+.nav-image {
+  padding-right: 30%;
+  padding-left: 30%;
+}
