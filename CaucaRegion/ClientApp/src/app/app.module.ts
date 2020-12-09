@@ -14,6 +14,7 @@ import { FoodComponent } from './food/food.component';
 import { MusicComponent } from './music/music.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import {EditComponent} from './edit/edit.component'
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     FoodComponent,
     MusicComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,7 +42,9 @@ import { LoginComponent } from './login/login.component';
       { path: 'event', component: EventComponent },
       { path: 'food', component: FoodComponent },
       { path: 'music', component: MusicComponent },
-      { path: 'app-login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'edit', component: EditComponent },
+      
     ])
   ],
   providers: [],
