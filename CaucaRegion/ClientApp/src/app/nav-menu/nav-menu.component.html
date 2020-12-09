@@ -1,30 +1,36 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container" style="padding-right: 20%;">
-      <a class="navbar-brand alingtext" [routerLink]="['/']">Cauca Región</a>
-      <button class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-label="Toggle navigation"
-              aria-controls="navbarNav"
-              [attr.aria-expanded]="falsed"
-              (click)="toggle()">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark bg-dark"
+  >
+    <div class=" container-fluid" style="padding-right:20%;">
+      <a class="navbar-brand alingtext" style="padding-right:10%;"  [routerLink]="['/']">Cauca Región</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav" 
+        aria-label="Toggle navigation"
+        aria-controls="navbarNav"
+        [attr.aria-expanded]="falsed"
+        (click)="toggle()"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div
+         class="collapse navbar-collapse " id="navbarNav"
+      >
         <ul class="navbar-nav">
           <!--<li class="nav-item"
-              [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-light" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-light" [routerLink]="['/counter']">Counter</a>
-          </li>
-          <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-light" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>-->
+      [routerLinkActive]="['link-active']"
+      [routerLinkActiveOptions]="{ exact: true }">
+    <a class="nav-link text-light" [routerLink]="['/']">Home</a>
+  </li>
+  <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
+    <a class="nav-link text-light" [routerLink]="['/counter']">Counter</a>
+  </li>
+  <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
+    <a class="nav-link text-light" [routerLink]="['/fetch-data']">Fetch data</a>
+  </li>-->
           <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
             <a class="nav-link text-light" [routerLink]="['/event']">
               <img src="assets/img/event-img.png" title="Eventos" width="80" height="80" class="d-inline-block align-top" alt="">
@@ -39,6 +45,11 @@
           <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/music']">
               <img src="assets/img/music-img.png" title="music" width="80" height="80" class="d-inline-block align-top" alt="">
+            </a>
+          </li>
+          <li class="nav-item nav-image" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/app-login']">
+              <img src="assets/img/login-img.png" title="login" width="80" height="80" class="d-inline-block align-top" alt="">
             </a>
           </li>
         </ul>
