@@ -7,9 +7,9 @@ namespace CaucaRegion.Models
 {
     public partial class Evento
     {
+        public decimal EventosId { get; set; }
         public string Nombre { get; set; }
-        public byte[] Imagen { get; set; }
         public string Lugar { get; set; }
-        public string Entrada { get; set; }
+        public double? Entrada { get; set; }
     }
 }

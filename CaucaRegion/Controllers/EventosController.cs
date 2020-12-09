@@ -11,25 +11,25 @@ namespace CaucaRegion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventoesController : ControllerBase
+    public class EventosController : ControllerBase
     {
-        private readonly gestion_itemsContext _context;
+        private readonly CaucaRegionBDContext _context;
 
-        public EventoesController(gestion_itemsContext context)
+        public EventosController(CaucaRegionBDContext context)
         {
             _context = context;
         }
 
-        // GET: api/Eventoes
+        // GET: api/Eventos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Evento>>> GetEventos()
         {
             return await _context.Eventos.ToListAsync();
         }
 
-        // GET: api/Eventoes/5
+        // GET: api/Eventos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Evento>> GetEvento(string id)
+        public async Task<ActionResult<Evento>> GetEvento(decimal id)
         {
             var evento = await _context.Eventos.FindAsync(id);
 
@@ -41,13 +41,13 @@ namespace CaucaRegion.Controllers
             return evento;
         }
 
-        // PUT: api/Eventoes/5
+        // PUT: api/Eventos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEvento(string id, Evento evento)
+        public async Task<IActionResult> PutEvento(decimal id, Evento evento)
         {
-            if (id != evento.Nombre)
+            if (id != evento.EventosId)
             {
                 return BadRequest();
             }
@@ -73,7 +73,7 @@ namespace CaucaRegion.Controllers
             return NoContent();
         }
 
-        // POST: api/Eventoes
+        // POST: api/Eventos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -86,7 +86,7 @@ namespace CaucaRegion.Controllers
             }
             catch (DbUpdateException)
             {
-                if (EventoExists(evento.Nombre))
+                if (EventoExists(evento.EventosId))
                 {
                     return Conflict();
                 }
@@ -96,12 +96,12 @@ namespace CaucaRegion.Controllers
                 }
             }
 
-            return CreatedAtAction("GetEvento", new { id = evento.Nombre }, evento);
+            return CreatedAtAction("GetEvento", new { id = evento.EventosId }, evento);
         }
 
-        // DELETE: api/Eventoes/5
+        // DELETE: api/Eventos/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Evento>> DeleteEvento(string id)
+        public async Task<ActionResult<Evento>> DeleteEvento(decimal id)
         {
             var evento = await _context.Eventos.FindAsync(id);
             if (evento == null)
@@ -115,9 +115,9 @@ namespace CaucaRegion.Controllers
             return evento;
         }
 
-        private bool EventoExists(string id)
+        private bool EventoExists(decimal id)
         {
-            return _context.Eventos.Any(e => e.Nombre == id);
+            return _context.Eventos.Any(e => e.EventosId == id);
         }
     }
 }

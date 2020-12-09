@@ -11,48 +11,48 @@ namespace CaucaRegion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GruposMusicalesController : ControllerBase
+    public class PlatosController : ControllerBase
     {
-        private readonly gestion_itemsContext _context;
+        private readonly CaucaRegionBDContext _context;
 
-        public GruposMusicalesController(gestion_itemsContext context)
+        public PlatosController(CaucaRegionBDContext context)
         {
             _context = context;
         }
 
-        // GET: api/GruposMusicales
+        // GET: api/Platos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GruposMusicale>>> GetGruposMusicales()
+        public async Task<ActionResult<IEnumerable<Plato>>> GetPlatos()
         {
-            return await _context.GruposMusicales.ToListAsync();
+            return await _context.Platos.ToListAsync();
         }
 
-        // GET: api/GruposMusicales/5
+        // GET: api/Platos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GruposMusicale>> GetGruposMusicale(string id)
+        public async Task<ActionResult<Plato>> GetPlato(decimal id)
         {
-            var gruposMusicale = await _context.GruposMusicales.FindAsync(id);
+            var plato = await _context.Platos.FindAsync(id);
 
-            if (gruposMusicale == null)
+            if (plato == null)
             {
                 return NotFound();
             }
 
-            return gruposMusicale;
+            return plato;
         }
 
-        // PUT: api/GruposMusicales/5
+        // PUT: api/Platos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGruposMusicale(string id, GruposMusicale gruposMusicale)
+        public async Task<IActionResult> PutPlato(decimal id, Plato plato)
         {
-            if (id != gruposMusicale.Nombre)
+            if (id != plato.PlatosId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(gruposMusicale).State = EntityState.Modified;
+            _context.Entry(plato).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CaucaRegion.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!GruposMusicaleExists(id))
+                if (!PlatoExists(id))
                 {
                     return NotFound();
                 }
@@ -73,20 +73,20 @@ namespace CaucaRegion.Controllers
             return NoContent();
         }
 
-        // POST: api/GruposMusicales
+        // POST: api/Platos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<GruposMusicale>> PostGruposMusicale(GruposMusicale gruposMusicale)
+        public async Task<ActionResult<Plato>> PostPlato(Plato plato)
         {
-            _context.GruposMusicales.Add(gruposMusicale);
+            _context.Platos.Add(plato);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (GruposMusicaleExists(gruposMusicale.Nombre))
+                if (PlatoExists(plato.PlatosId))
                 {
                     return Conflict();
                 }
@@ -96,28 +96,28 @@ namespace CaucaRegion.Controllers
                 }
             }
 
-            return CreatedAtAction("GetGruposMusicale", new { id = gruposMusicale.Nombre }, gruposMusicale);
+            return CreatedAtAction("GetPlato", new { id = plato.PlatosId }, plato);
         }
 
-        // DELETE: api/GruposMusicales/5
+        // DELETE: api/Platos/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<GruposMusicale>> DeleteGruposMusicale(string id)
+        public async Task<ActionResult<Plato>> DeletePlato(decimal id)
         {
-            var gruposMusicale = await _context.GruposMusicales.FindAsync(id);
-            if (gruposMusicale == null)
+            var plato = await _context.Platos.FindAsync(id);
+            if (plato == null)
             {
                 return NotFound();
             }
 
-            _context.GruposMusicales.Remove(gruposMusicale);
+            _context.Platos.Remove(plato);
             await _context.SaveChangesAsync();
 
-            return gruposMusicale;
+            return plato;
         }
 
-        private bool GruposMusicaleExists(string id)
+        private bool PlatoExists(decimal id)
         {
-            return _context.GruposMusicales.Any(e => e.Nombre == id);
+            return _context.Platos.Any(e => e.PlatosId == id);
         }
     }
 }

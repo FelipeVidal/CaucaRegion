@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CaucaRegion.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CaucaRegion
 {
@@ -22,6 +24,10 @@ namespace CaucaRegion
         {
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
+
+            var connection = Configuration.GetConnectionString("connectionDB");
+            services.AddDbContext<CaucaRegionBDContext>(options => options.UseSqlServer(connection));
+
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
