@@ -31,19 +31,37 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\event-create\eventCreate.component.ts" />
     <None Remove="ClientApp\src\app\event\event.component.ts" />
+    <None Remove="ClientApp\src\app\food-create\foodCreate.component.ts" />
+    <None Remove="ClientApp\src\app\food-edit\foodEdit.component.ts" />
     <None Remove="ClientApp\src\app\food\food.component.ts" />
     <None Remove="ClientApp\src\app\footer\footer.component.ts" />
+    <None Remove="ClientApp\src\app\Interfaces.ts" />
     <None Remove="ClientApp\src\app\login\login.component.ts" />
+    <None Remove="ClientApp\src\app\music-create\musicCreate.component.ts" />
+    <None Remove="ClientApp\src\app\music-edit\musicEdit.component.ts" />
     <None Remove="ClientApp\src\app\music\music.component.ts" />
+    <None Remove="ClientApp\src\app\service\event.service.ts" />
+    <None Remove="ClientApp\src\app\service\food.services.ts" />
+    <None Remove="ClientApp\src\app\service\music.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\event-create\eventCreate.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\event\event.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\food-create\foodCreate.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\food\food.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\food-edit\foodEdit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\footer\footer.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Interfaces.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\music-create\musicCreate.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\music-edit\musicEdit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\music\music.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\event.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\food.services.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\music.service.ts" />
   </ItemGroup>
 
   <ItemGroup>

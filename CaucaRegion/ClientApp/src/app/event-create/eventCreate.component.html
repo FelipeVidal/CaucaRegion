@@ -1,0 +1,28 @@
+<h2 class="page-header">
+  {{ titulo }}
+</h2>
+
+<div class="form-group">
+  Identificador
+  <input type="text" class="form-control" [formControl]="idControl">
+</div>
+<div class="form-group">
+  Nombre
+  <input type="text" class="form-control" [formControl]="nombreControl">
+</div>
+<div class="form-group">
+  Lugar
+  <input type="text" class="form-control" [formControl]="lugarControl">
+</div>
+<div class="form-group">
+  Entrada
+  <input type="text" class="form-control" [formControl]="entradaControl">
+</div>
+<div class="form-group">
+  Imagen
+  <input type="text" class="form-control" ng-model="imagen">
+</div>
+
+<a href="/event" class="btn btn-danger">Cancelar</a>
+<input type="button" (click)="guardar()" class="btn btn-primary" value="Guardar" />
+

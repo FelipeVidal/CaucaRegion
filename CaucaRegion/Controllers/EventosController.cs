@@ -79,6 +79,7 @@ namespace CaucaRegion.Controllers
         [HttpPost]
         public async Task<ActionResult<Evento>> PostEvento(Evento evento)
         {
+            Console.WriteLine(evento.Lugar);
             _context.Eventos.Add(evento);
             try
             {

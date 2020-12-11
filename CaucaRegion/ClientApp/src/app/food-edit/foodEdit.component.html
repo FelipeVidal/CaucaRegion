@@ -1,0 +1,20 @@
+<div class="form-group">
+  Nombre
+  <input type="text" class="form-control" [formControl]="nombreControl">
+</div>
+<div class="form-group">
+  Ingredientes
+  <input type="text" class="form-control" [formControl]="ingredientesControl">
+</div>
+<div class="form-group">
+  Precio
+  <input type="text" class="form-control" [formControl]="precioControl">
+</div>
+<div class="form-group">
+  Imagen
+  <input type="text" class="form-control" ng-model="imagen">
+</div>
+
+<a href="/food" class="btn btn-danger">Cancelar</a>
+<input type="button" (click)="guardar()" class="btn btn-primary" value="Guardar" />
+

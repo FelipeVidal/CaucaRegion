@@ -1,0 +1,23 @@
+<div class="form-group">
+  identificador
+  <input type="text" class="form-control" [formControl]="idControl">
+</div>
+<div class="form-group">
+  Nombre
+  <input type="text" class="form-control" [formControl]="nombreControl">
+</div>
+<div class="form-group">
+  Instrumentos
+  <input type="text" class="form-control" [formControl]="instrumentosControl">
+</div>
+<div class="form-group">
+  canal
+  <input type="text" class="form-control" [formControl]="canalControl">
+</div>
+<div class="form-group">
+  Imagen
+  <input type="text" class="form-control" ng-model="imagen">
+</div>
+
+<a href="/music" class="btn btn-danger">Cancelar</a>
+<input type="button" (click)="guardar()" class="btn btn-primary" value="Guardar" />

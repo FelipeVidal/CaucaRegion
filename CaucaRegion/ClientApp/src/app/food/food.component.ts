@@ -1,5 +1,8 @@
 import { Component, Inject } from '@angular/core'
 import { HttpClient } from "@angular/common/http"
+import { FoodService } from '../service/food.services';
+import { Observable } from 'rxjs';
+import { IFood } from '../Interfaces';
 @Component({
   selector: 'food',
   templateUrl: './food.component.html',
@@ -7,9 +10,22 @@ import { HttpClient } from "@angular/common/http"
 })
 
 export class FoodComponent {
-  public lstMessages: string[];
+  public lstMessages: Observable<IFood[]>;
 
-  constructor(http: HttpClient, @Inject("BASE_URL") baseUrl: string) {
-    http.get<string[]> (baseUrl + "api/Platos").subscribe(result => { this.lstMessages = result }, error => console.error(error));
+  constructor(protected footService: FoodService) {
+    this.GetInfo();
+  }
+
+  public GetInfo() {
+    this.lstMessages = this.footService.GetFoot();
+  }
+
+  public DeleteInfo(id) {
+    this.footService.DeleteFood(parseInt(id));
+    this.reloadPage();
+  }
+  private reloadPage() {
+    window.location.assign('/food');
+
   }
 }

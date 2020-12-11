@@ -1,5 +1,8 @@
 import { Component, Inject } from '@angular/core'
-import { HttpClient } from "@angular/common/http"
+import { MusicService } from '../service/music.service';
+import { Observable } from 'rxjs';
+import { IMusic } from '../Interfaces';
+
 
 
 @Component({
@@ -8,9 +11,22 @@ import { HttpClient } from "@angular/common/http"
   styleUrls: ['./music.component.css']
 })
 export class MusicComponent{
-  public lstMessages: string[];
+  public lstMessages: Observable<IMusic[]>;
 
-  constructor(http: HttpClient, @Inject("BASE_URL") baseUrl: string) {
-    http.get<string[]>(baseUrl + "api/MusicaAgrupaciones").subscribe(result => { this.lstMessages = result }, error => console.error(error));
+  constructor(protected musicService: MusicService) {
+    this.GetInfo();
+  }
+
+  public GetInfo() {
+    this.lstMessages = this.musicService.GetMusic();
+  }
+
+  public DeleteInfo(id) {
+    this.musicService.DeleteMusic(parseInt(id));
+    this.reloadPage();
+  }
+  private reloadPage() {
+    window.location.assign('/music');
+
   }
 }

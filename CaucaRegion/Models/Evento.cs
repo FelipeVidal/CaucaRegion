@@ -10,6 +10,6 @@ namespace CaucaRegion.Models
         public decimal EventosId { get; set; }
         public string Nombre { get; set; }
         public string Lugar { get; set; }
-        public double? Entrada { get; set; }
+        public Double Entrada { get; set; }
     }
 }

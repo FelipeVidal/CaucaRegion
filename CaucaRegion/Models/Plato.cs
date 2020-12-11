@@ -10,6 +10,6 @@ namespace CaucaRegion.Models
         public decimal PlatosId { get; set; }
         public string Nombre { get; set; }
         public string Ingredientes { get; set; }
-        public double? Precio { get; set; }
+        public Double Precio { get; set; }
     }
 }
