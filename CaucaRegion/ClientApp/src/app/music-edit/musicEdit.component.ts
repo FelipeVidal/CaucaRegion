@@ -16,6 +16,8 @@ export class MusicEditComponent {
   private nombreControl = new FormControl('');
   private instrumentosControl = new FormControl('');
   private canalControl = new FormControl('');
+  private imagenControl = new FormControl('');
+
 
   constructor(protected musicService: MusicService, private ruta: ActivatedRoute) {
     this.id = JSON.parse(this.ruta.snapshot.params.id)
@@ -29,16 +31,9 @@ export class MusicEditComponent {
     const newNombre = this.nombreControl.value;
     const newInstrumentos = this.instrumentosControl.value;
     const newCanal = this.canalControl.value;
+    const newImagen = this.imagenControl.value;
 
-    console.log(id);
-
-    console.log(newNombre);
-
-    console.log(newInstrumentos);
-
-    console.log(newCanal);
-
-    this.musicService.UpdateMusic(id, newNombre, newInstrumentos, newCanal);
+    this.musicService.UpdateMusic(id, newNombre, newInstrumentos, newCanal, newImagen);
     this.reloadPage();
   }
   public GetEvent() {

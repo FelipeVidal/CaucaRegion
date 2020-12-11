@@ -8,7 +8,7 @@
   <button *ngIf="true" type="submit" class="btn btn-primary" [routerLink]="['/foodCreate']">Crear</button>
   <div class="grid">
     <div class="card" style="width: 18rem;" *ngFor="let elemento of lstMessages | async">
-      <img class="card-img-top" src="assets/img/statistics.png" alt="Card image cap">
+      <img class="card-img-top" src={{elemento.imagen}}  alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">
           {{elemento.nombre}}
@@ -21,7 +21,7 @@
 
           Precio: {{elemento.precio}}
         </p>
-        <button *ngIf="true" type="submit" class="btn btn-danger" [routerLink]="['/footEdit',elemento.platosId]">Editar</button>
+        <button *ngIf="true" type="submit" class="btn btn-danger" [routerLink]="['/foodEdit',elemento.platosId]">Editar</button>
         <button *ngIf="true" type="submit" class="btn btn-success" (click)="DeleteInfo(elemento.platosId)">Eliminar</button>
       </div>
     </div>

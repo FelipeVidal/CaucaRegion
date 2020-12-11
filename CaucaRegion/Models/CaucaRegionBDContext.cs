@@ -20,6 +20,7 @@ namespace CaucaRegion.Models
         public virtual DbSet<Evento> Eventos { get; set; }
         public virtual DbSet<MusicaAgrupacione> MusicaAgrupaciones { get; set; }
         public virtual DbSet<Plato> Platos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -44,6 +45,11 @@ namespace CaucaRegion.Models
                     .HasColumnName("EVENTOS_ID");
 
                 entity.Property(e => e.Entrada).HasColumnName("ENTRADA");
+
+                entity.Property(e => e.Imagen)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGEN");
 
                 entity.Property(e => e.Lugar)
                     .HasMaxLength(100)
@@ -72,6 +78,11 @@ namespace CaucaRegion.Models
                     .IsUnicode(false)
                     .HasColumnName("CANAL");
 
+                entity.Property(e => e.Imagen)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGEN");
+
                 entity.Property(e => e.Instrumentos)
                     .HasMaxLength(100)
                     .IsUnicode(false)
@@ -94,6 +105,11 @@ namespace CaucaRegion.Models
                     .HasColumnType("numeric(18, 0)")
                     .HasColumnName("PLATOS_ID");
 
+                entity.Property(e => e.Imagen)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("IMAGEN");
+
                 entity.Property(e => e.Ingredientes)
                     .HasMaxLength(100)
                     .IsUnicode(false)
@@ -105,6 +121,24 @@ namespace CaucaRegion.Models
                     .HasColumnName("NOMBRE");
 
                 entity.Property(e => e.Precio).HasColumnName("PRECIO");
+            });
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.HasKey(e => e.Usuario1)
+                    .HasName("USUARIO_PK");
+
+                entity.ToTable("USUARIOS");
+
+                entity.Property(e => e.Usuario1)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("USUARIO");
+
+                entity.Property(e => e.Contrasenia)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("CONTRASENIA");
             });
 
             OnModelCreatingPartial(modelBuilder);

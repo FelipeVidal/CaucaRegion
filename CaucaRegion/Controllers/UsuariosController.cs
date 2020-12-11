@@ -11,48 +11,48 @@ namespace CaucaRegion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventosController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
         private readonly CaucaRegionBDContext _context;
 
-        public EventosController(CaucaRegionBDContext context)
+        public UsuariosController(CaucaRegionBDContext context)
         {
             _context = context;
         }
 
-        // GET: api/Eventos
+        // GET: api/Usuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Evento>>> GetEventos()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            return await _context.Eventos.ToListAsync();
+            return await _context.Usuarios.ToListAsync();
         }
 
-        // GET: api/Eventos/5
+        // GET: api/Usuarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Evento>> GetEvento(decimal id)
+        public async Task<ActionResult<Usuario>> GetUsuario(string id)
         {
-            var evento = await _context.Eventos.FindAsync(id);
+            var usuario = await _context.Usuarios.FindAsync(id);
 
-            if (evento == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return evento;
+            return usuario;
         }
 
-        // PUT: api/Eventos/5
+        // PUT: api/Usuarios/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEvento(decimal id, Evento evento)
+        public async Task<IActionResult> PutUsuario(string id, Usuario usuario)
         {
-            if (id != evento.EventosId)
+            if (id != usuario.Usuario1)
             {
                 return BadRequest();
             }
 
-            _context.Entry(evento).State = EntityState.Modified;
+            _context.Entry(usuario).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace CaucaRegion.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EventoExists(id))
+                if (!UsuarioExists(id))
                 {
                     return NotFound();
                 }
@@ -73,20 +73,20 @@ namespace CaucaRegion.Controllers
             return NoContent();
         }
 
-        // POST: api/Eventos
+        // POST: api/Usuarios
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Evento>> PostEvento(Evento evento)
+        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Eventos.Add(evento);
+            _context.Usuarios.Add(usuario);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (EventoExists(evento.EventosId))
+                if (UsuarioExists(usuario.Usuario1))
                 {
                     return Conflict();
                 }
@@ -96,28 +96,28 @@ namespace CaucaRegion.Controllers
                 }
             }
 
-            return CreatedAtAction("GetEvento", new { id = evento.EventosId }, evento);
+            return CreatedAtAction("GetUsuario", new { id = usuario.Usuario1 }, usuario);
         }
 
-        // DELETE: api/Eventos/5
+        // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Evento>> DeleteEvento(decimal id)
+        public async Task<ActionResult<Usuario>> DeleteUsuario(string id)
         {
-            var evento = await _context.Eventos.FindAsync(id);
-            if (evento == null)
+            var usuario = await _context.Usuarios.FindAsync(id);
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.Eventos.Remove(evento);
+            _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
-            return evento;
+            return usuario;
         }
 
-        private bool EventoExists(decimal id)
+        private bool UsuarioExists(string id)
         {
-            return _context.Eventos.Any(e => e.EventosId == id);
+            return _context.Usuarios.Any(e => e.Usuario1 == id);
         }
     }
 }

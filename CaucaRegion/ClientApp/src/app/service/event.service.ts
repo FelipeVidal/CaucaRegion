@@ -25,8 +25,8 @@ export class EventService {
     return this.http.get<IEvent[]>(this.baseUrl + "api/Eventos");
   }
 
-  public PostEvent(id, nombre, lugar, entrada) {
-    this.http.post<any>(this.baseUrl + "api/Eventos", { 'eventosId': id, 'nombre': nombre, 'lugar': lugar, 'entrada': entrada }, httpOptions).subscribe(
+  public PostEvent(id, nombre, lugar, entrada, imagen) {
+    this.http.post<any>(this.baseUrl + "api/Eventos", { 'eventosId': id, 'nombre': nombre, 'lugar': lugar, 'entrada': entrada, 'imagen': imagen }, httpOptions).subscribe(
       result => {
         console.log(result);
       },
@@ -40,8 +40,8 @@ export class EventService {
       error => console.error(error)
     );
   }
-  public UpdateEvent(id, newNombre, newLugar, newEntrada) {
-    this.http.put<any>(this.baseUrl + "api/Eventos/" + id, { 'eventosId': id, 'nombre': newNombre, 'lugar': newLugar, 'entrada': newEntrada }, httpOptions).subscribe(
+  public UpdateEvent(id, newNombre, newLugar, newEntrada, newImagen) {
+    this.http.put<any>(this.baseUrl + "api/Eventos/" + id, { 'eventosId': id, 'nombre': newNombre, 'lugar': newLugar, 'entrada': newEntrada, 'imagen': newImagen}, httpOptions).subscribe(
       result => {
         console.log(result)
       },

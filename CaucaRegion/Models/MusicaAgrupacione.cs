@@ -11,5 +11,6 @@ namespace CaucaRegion.Models
         public string Nombre { get; set; }
         public string Instrumentos { get; set; }
         public string Canal { get; set; }
+        public string Imagen { get; set; }
     }
 }

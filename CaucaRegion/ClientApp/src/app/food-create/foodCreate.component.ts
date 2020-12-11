@@ -16,7 +16,7 @@ export class FoodCreateComponent {
   private nombreControl = new FormControl('');
   private ingredientesControl = new FormControl('');
   private precioControl = new FormControl('');
-
+  private imagenControl = new FormControl('');
 
   constructor(private http: HttpClient, @Inject("BASE_URL") private baseUrl: string, private ruta: ActivatedRoute, protected foodService: FoodService, private route: ActivatedRoute,
   ) {
@@ -31,8 +31,9 @@ export class FoodCreateComponent {
     const newNombre = this.nombreControl.value;
     const newIngredientes = this.ingredientesControl.value;
     const newPrecio = parseInt(this.precioControl.value);
+    const newImagen = this.imagenControl.value;
 
-    this.foodService.PostFood(newId, newNombre, newIngredientes, newPrecio);
+    this.foodService.PostFood(newId, newNombre, newIngredientes, newPrecio, newImagen );
     this.reloadPage();
   }
   public GetEvent() {

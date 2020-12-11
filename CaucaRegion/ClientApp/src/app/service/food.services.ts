@@ -25,8 +25,8 @@ export class FoodService {
     return this.http.get<IFood[]>(this.baseUrl + "api/Platos");
   }
 
-  public PostFood(id, nombre, ingredientes, precio) {
-    this.http.post<any>(this.baseUrl + "api/Platos", { 'platosId': id, 'nombre': nombre, 'ingredientes': ingredientes, 'precio': precio }, httpOptions).subscribe(
+  public PostFood(id, nombre, ingredientes, precio, imagen) {
+    this.http.post<any>(this.baseUrl + "api/Platos", { 'platosId': id, 'nombre': nombre, 'ingredientes': ingredientes, 'precio': precio, 'imagen': imagen }, httpOptions).subscribe(
       result => {
         console.log(result);
       },
@@ -40,8 +40,8 @@ export class FoodService {
       error => console.error(error)
     );
   }
-  public UpdateFood(id, newNombre, newIngredientes, newPrecio) {
-    this.http.put<any>(this.baseUrl + "api/Platos/" + id, { 'platosId': id, 'nombre': newNombre, 'ingredientes': newIngredientes, 'precio': newPrecio }, httpOptions).subscribe(
+  public UpdateFood(id, newNombre, newIngredientes, newPrecio, newImagen) {
+    this.http.put<any>(this.baseUrl + "api/Platos/" + id, { 'platosId': id, 'nombre': newNombre, 'ingredientes': newIngredientes, 'precio': newPrecio, 'imagen': newImagen }, httpOptions).subscribe(
       result => {
         console.log(result)
       },

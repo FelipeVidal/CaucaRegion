@@ -17,6 +17,7 @@ export class EventCreateComponent {
   private nombreControl = new FormControl('');
   private lugarControl = new FormControl('');
   private entradaControl = new FormControl('');
+  private imagenControl = new FormControl('');
 
 
 
@@ -32,7 +33,9 @@ export class EventCreateComponent {
     const newNombre = this.nombreControl.value;
     const newLugar = this.lugarControl.value;
     const newEntrada = parseInt(this.entradaControl.value);
-    this.eventService.PostEvent(newId, newNombre, newLugar, newEntrada);
+    const newImagen = this.imagenControl.value;
+
+    this.eventService.PostEvent(newId, newNombre, newLugar, newEntrada, newImagen);
     this.reloadPage();
   }
   public GetEvent() {

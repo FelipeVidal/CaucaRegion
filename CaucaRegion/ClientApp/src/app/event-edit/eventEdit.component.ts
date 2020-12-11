@@ -16,6 +16,7 @@ export class EventEditComponent {
   private nombreControl = new FormControl('');
   private lugarControl = new FormControl('');
   private entradaControl = new FormControl('');
+  private imagenControl = new FormControl('');
     
 
 
@@ -34,7 +35,9 @@ export class EventEditComponent {
     const newNombre = this.nombreControl.value;
     const newLugar = this.lugarControl.value;
     const newEntrada = parseInt(this.entradaControl.value);
-    this.eventService.UpdateEvent(newId, newNombre, newLugar, newEntrada);
+    const newImagen = this.imagenControl.value;
+
+    this.eventService.UpdateEvent(newId, newNombre, newLugar, newEntrada,newImagen);
     this.reloadPage();
   }
   public GetEvent() {

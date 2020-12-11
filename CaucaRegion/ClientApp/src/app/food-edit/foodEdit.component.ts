@@ -16,6 +16,7 @@ export class FoodEditComponent {
   private nombreControl = new FormControl('');
   private ingredientesControl = new FormControl('');
   private precioControl = new FormControl('');
+  private imagenControl = new FormControl('');
 
 
 
@@ -34,13 +35,9 @@ export class FoodEditComponent {
     const newNombre = this.nombreControl.value;
     const newIngredientes = this.ingredientesControl.value;
     const newPrecio = parseInt(this.precioControl.value);
-    console.log(newId);
-    console.log(newNombre);
-    console.log(newIngredientes);
-    console.log(newPrecio);
+    const newImagen = this.imagenControl.value;
 
-
-    this.foodService.UpdateFood(newId, newNombre, newIngredientes, newPrecio);
+    this.foodService.UpdateFood(newId, newNombre, newIngredientes, newPrecio, newImagen);
     this.reloadPage();
   }
   public GetEvent() {

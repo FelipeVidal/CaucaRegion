@@ -25,8 +25,8 @@ export class MusicService {
     return this.http.get<IMusic[]>(this.baseUrl + "api/MusicaAgrupaciones");
   }
 
-  public PostMusic(id, nombre, instrumentos, canal) {
-    this.http.post<any>(this.baseUrl + "api/MusicaAgrupaciones", { 'musicaId': id, 'nombre': nombre, 'instrumentos': instrumentos, 'canal': canal }, httpOptions).subscribe(
+  public PostMusic(id, nombre, instrumentos, canal, imagen) {
+    this.http.post<any>(this.baseUrl + "api/MusicaAgrupaciones", { 'musicaId': id, 'nombre': nombre, 'instrumentos': instrumentos, 'canal': canal, 'imagen': imagen }, httpOptions).subscribe(
       result => {
         console.log(result);
       },
@@ -40,8 +40,8 @@ export class MusicService {
       error => console.error(error)
     );
   }
-  public UpdateMusic(id, newNombre, newInstrumentos, newCanal) {
-    this.http.put<any>(this.baseUrl + "api/MusicaAgrupaciones/" +id, { 'musicaId': id, 'nombre': newNombre, 'instrumentos': newInstrumentos, 'canal': newCanal }, httpOptions).subscribe(
+  public UpdateMusic(id, newNombre, newInstrumentos, newCanal, newImagen) {
+    this.http.put<any>(this.baseUrl + "api/MusicaAgrupaciones/" +id, { 'musicaId': id, 'nombre': newNombre, 'instrumentos': newInstrumentos, 'canal': newCanal, 'imagen': newImagen }, httpOptions).subscribe(
       result => {
         console.log(result)
       },

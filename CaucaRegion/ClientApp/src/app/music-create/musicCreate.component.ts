@@ -14,6 +14,7 @@ export class MusicCreateComponent {
   private nombreControl = new FormControl('');
   private instrumentosControl = new FormControl('');
   private canalControl = new FormControl('');
+  private imagenControl = new FormControl('');
 
   constructor(protected musicService: MusicService) {
   }
@@ -26,16 +27,10 @@ export class MusicCreateComponent {
     const newNombre = this.nombreControl.value;
     const newInstrumentos = this.instrumentosControl.value;
     const newCanal = this.canalControl.value;
+    const newImagen = this.imagenControl.value;
 
-    console.log(newId);
 
-    console.log(newNombre);
-
-    console.log(newInstrumentos);
-
-    console.log(newCanal);
-
-    this.musicService.PostMusic(newId, newNombre, newInstrumentos, newCanal);
+    this.musicService.PostMusic(newId, newNombre, newInstrumentos, newCanal, newImagen);
     this.reloadPage();
   }
   public GetEvent() {

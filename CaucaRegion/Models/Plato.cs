@@ -11,5 +11,6 @@ namespace CaucaRegion.Models
         public string Nombre { get; set; }
         public string Ingredientes { get; set; }
         public Double Precio { get; set; }
+        public string Imagen { get; set; }
     }
 }
